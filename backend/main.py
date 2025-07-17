@@ -7,7 +7,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
+    allow_origins=["http://localhost:3000", "https://your-app.vercel.app"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -18,18 +18,19 @@ async def parse_pipeline(data: Dict):
     nodes = data.get("nodes", [])
     edges = data.get("edges", [])
     G = nx.DiGraph()
-    G.add_nodes_from([node['id'] for node in nodes])  # Add all nodes
+    G.add_nodes_from([node['id'] for node in nodes])
     G.add_edges_from([(e['source'], e['target']) for e in edges if 'source' in e and 'target' in e])
+    
     is_dag = nx.is_directed_acyclic_graph(G)
     num_nodes = len(nodes)
     num_edges = len(edges)
-    # Count unconnected components (using weakly connected components for directed graph)
+
     if num_nodes > 0:
-        undirected = G.to_undirected()
         num_components = nx.number_weakly_connected_components(G)
         has_unconnected = num_components > 1
     else:
         has_unconnected = False
+        num_components = 0
 
     return {
         "num_nodes": num_nodes,
