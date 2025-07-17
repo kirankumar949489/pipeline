@@ -7,7 +7,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "https://pipeline-beige.vercel.app/"],
+    allow_origins=["http://localhost:3000", "https://pipeline-git-main-kiran-kumars-projects-605f38ec.vercel.app/"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
