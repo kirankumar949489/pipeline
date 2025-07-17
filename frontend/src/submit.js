@@ -8,7 +8,7 @@ export const SubmitButton = () => {
 
   const handleSubmit = async () => {
     try {
-      const responseData = await fetch('http://localhost:8000/pipelines/parse', {
+      const responseData = await fetch('https://pipeline-s2ra.onrender.com/pipelines/parse', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ nodes, edges })
@@ -60,9 +60,9 @@ export const SubmitButton = () => {
           <div style={{
             backgroundColor: '#ffffff',
             padding: '20px',
-            border: '2px solid #3498db', /* Styled border */
+            border: '2px solid #3498db',
             borderRadius: '10px',
-            boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)', /* Enhanced shadow */
+            boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)',
             width: '300px',
             maxHeight: '80vh',
             overflowY: 'auto',
