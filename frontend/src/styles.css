@@ -1,0 +1,195 @@
+body {
+  background-color: #f5f7fa;
+  font-family: Arial, sans-serif;
+}
+
+.react-flow {
+  background-color: #f5f7fa; /* Match the solid background */
+}
+
+.toolbar {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.draggable-node {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 60px;
+  background-color: #ecf0f1;
+  border: 2px solid #3498db;
+  border-radius: 8px;
+  cursor: grab;
+  font-size: 14px;
+  color: #2c3e50;
+  transition: all 0.3s ease;
+}
+
+.draggable-node:hover {
+  background-color: #dfe6e9;
+  border-color: #2980b9;
+  transform: translateY(-2px);
+}
+
+.draggable-node.customInput { border-color: #e74c3c; }
+.draggable-node.llm { border-color: #8e44ad; }
+.draggable-node.customOutput { border-color: #2ecc71; }
+.draggable-node.text { border-color: #f1c40f; }
+.draggable-node.math { border-color: #e67e22; }
+.draggable-node.image { border-color: #1abc9c; }
+.draggable-node.timer { border-color: #3498db; }
+.draggable-node.filter { border-color: #9b59b6; }
+.draggable-node.logic { border-color: #16a085; }
+
+.node {
+  background-color: #ffffff;
+  border: 2px solid #aeb6bf;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 200px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.node:hover {
+  border-color: #3498db;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.node-header {
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 5px;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.node-content {
+  padding: 5px;
+}
+
+.node-content label {
+  display: block;
+  margin: 5px 0;
+  color: #34495e;
+}
+
+.node-content input,
+.node-content select,
+.node-content textarea {
+  margin-left: 5px;
+  padding: 2px 5px;
+  border: 1px solid #bdc3c7;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.delete-button {
+  background: none;
+  border: none;
+  color: #e74c3c;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 0 5px;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.delete-button:hover {
+  opacity: 1;
+  color: #c0392b;
+}
+
+.react-flow {
+  background-color: #ecf0f1;
+  background-image: linear-gradient(45deg, #e0e0e0 25%, transparent 25%), 
+                    linear-gradient(-45deg, #e0e0e0 25%, transparent 25%), 
+                    linear-gradient(45deg, transparent 75%, #e0e0e0 75%), 
+                    linear-gradient(-45deg, transparent 75%, #e0e0e0 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+}
+
+.react-flow__handle {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #3498db;
+}
+
+.react-flow__edge-path {
+  stroke: #3498db;
+  stroke-width: 2;
+}
+
+button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+.result {
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #bdc3c7;
+  border-radius: 4px;
+  background-color: #ffffff;
+}
+
+.result h3 {
+  margin: 0 0 10px 0;
+  color: #2c3e50;
+}
+
+.result p {
+  color: #e74c3c;
+}
+
+.result ul {
+  list-style: none;
+  padding: 0;
+}
+
+.result li {
+  margin: 5px 0;
+  color: #2c3e50;
+}
+
+.result li:nth-child(4) {
+  color: #27ae60;
+}
+
+.result li:nth-child(4):contains("Incomplete") {
+  color: #e67e22;
+}
+.react-flow__handle:hover {
+  background-color: #2980b9;
+  transform: scale(1.2);
+  transition: all 0.2s ease;
+}
+
+.react-flow__edge-path.updating {
+  stroke: #e74c3c;
+  animation: pulse 0.5s infinite;
+}
+
+@keyframes pulse {
+  0% { stroke-width: 2px; }
+  50% { stroke-width: 3px; }
+  100% { stroke-width: 2px; }
+}
+
